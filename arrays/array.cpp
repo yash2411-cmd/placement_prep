@@ -32,6 +32,16 @@ void minmax(int arr[],int n){
     return;
 }
 
+void sumofarr(int arr[],int n){
+    int sum=0;
+    for(int i=0;i<n;i++)
+{
+    sum+=arr[i];
+}
+cout<<"sum of array elements is: "<<sum<<endl;    
+return;
+}
+
 int main(){
     int arr[10]={1,2,3,41,54,85,6,31,22,24};
     printarray(arr,10);
