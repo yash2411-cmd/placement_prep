@@ -7,7 +7,7 @@ int pivot(int arr[],int n) {
     int mid = start+ (end-start)/2;
 
     while(start<end){
-            if(arr[mid]>=arr[0]){
+            if(arr[mid]>=arr[0]){ // we just need to update the start because we know that the answer is in second line so we want that start should move forward if mid is > arr[0]
                 start= mid+1;
             }
             else{
