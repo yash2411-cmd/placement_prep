@@ -20,11 +20,11 @@ int main(){
     }
     int mask=0;
     while(m!=0){
-        mask = (mask << 1) | 1;
-        m= (m >> 1);
+        mask = (mask << 1) | 1; // here we will get 00000000....00111;
+        m= (m >> 1); // so after 3 iterations m will become zero then we will exit the loop with mask value of 111;
     }
     int ans;
-    ans= (~n)&mask;
+    ans= (~n)&mask; // we know xor property so we will xor not of n and mask to get the n's compliment 
     cout<<ans<<endl;
 
     return 0;

@@ -22,7 +22,7 @@ using namespace std;
     }
 
     int main(){
-        vector<int>v= {1,2,2,1,1,3};
+        vector<int>v= {1,2,2,1,1,3,3};
         cout<<uniqueOccurrences(v);
         return 0;
 

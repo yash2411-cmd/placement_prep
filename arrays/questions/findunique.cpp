@@ -10,9 +10,9 @@ int main(){
         cin>>arr[i];
     }
     for(int i=0;i<n;i++){
-        ans= ans^arr[i];
+        ans= ans^arr[i]; // we are using property of XOR to cancel out the same element like 1^1=0 so the element which is left will be the ans.
     }
 
-    cout<<ans<<endl;
+    cout<<"unique element is: "<<ans<<endl;
     return 0;
 }

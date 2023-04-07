@@ -12,7 +12,8 @@ int peakIndexInMountainArray(int arr[],int n) {
                 start= mid+1;
             }
             else{
-                end= mid;
+                end= mid; // in this case we know that our answer can be on second line or it can be the peak of mountain
+                // so if we update end by mid-1; we can land in the first line where the answer is not present thats why we are updating the end to mid.
             }
         
             mid = start+ (end-start)/2;
