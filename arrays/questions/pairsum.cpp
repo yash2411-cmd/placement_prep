@@ -1,6 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// using unordered map
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int>m;
+        vector<int>ans;
+        for(int i=0;i<nums.size();i++){
+            if(m.find(nums[i]) == m.end()){
+                m[nums[i]]=i;
+            }
+            if(m.find(target -nums[i]) !=m.end() && i!= m[target-nums[i]]){
+                ans.push_back(i);
+                ans.push_back(m[target -nums[i]]);
+                break;
+            }
+
+        }
+        return ans;
+    }
+
 // here we use a optimized approach to solve this in O(n) tc 
 void pairsum(int arr[],int n, int target){
     map<int,int>mp;
