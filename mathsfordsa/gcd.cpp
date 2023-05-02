@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// iterative approach
 int gcd(int a,int b){
     if(a==0){
         return b;
