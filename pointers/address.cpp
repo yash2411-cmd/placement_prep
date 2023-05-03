@@ -16,6 +16,18 @@ int main()
     cout<<"size of pointer is: "<<sizeof(ptr)<<endl;
     cout<<"size of integer is: "<<sizeof(n);
 
-
- return 0;
+    // increment and decrement with pointer
+    int *p= &n;
+    cout<<"value of n before increment: "<<n<<endl;
+    (*p)++;
+    cout<<"value of n after increment: "<<n<<endl;
+    
+    // important 
+    int i=9;
+    int *t= &i;
+    cout<<"before increment: "<<t<<endl;
+    t= t+1;
+    cout<<"after increment: "<<t<<endl;
+ 
+    return 0;
 }
