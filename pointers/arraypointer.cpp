@@ -21,5 +21,8 @@ int main()
     cout<<"size of ptr: "<<sizeof(&ptr)<<endl;
 
 
+    
+
+
  return 0;
 }
