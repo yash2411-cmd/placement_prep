@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 // code studio 
 // this is a most important question it uses binary search and has been asked many times in faang
+using namespace std;
 bool ispossible(vector<int>arr, int n,int m, int mid){
     int studentcount=1;
     int pagesum=0;
@@ -28,6 +29,7 @@ int allocateBooks(vector<int> arr, int n, int m) {
     int e=sum;
     int ans=-1;
     int mid= s+(e-s)/2;
+    if(n<m)return ans;
     while(s<=e){
         if(ispossible(arr,n,m,mid)){
             ans= mid;
@@ -41,4 +43,18 @@ int allocateBooks(vector<int> arr, int n, int m) {
 
     }
     return ans;
+}
+
+int main(){
+    vector<int>v;
+    int n;
+    cin>>n;
+    int m;
+    cin>>m;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    cout<<allocateBooks(v,n,m);
 }
