@@ -56,7 +56,7 @@ class labra: public dog{
 
 };
 
-// multiple inheritance
+
 
 
 
