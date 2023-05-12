@@ -62,40 +62,18 @@ void insertatposition(Node* head,Node* tail, int index,int d){
 
     
 }
-// 1st recursive approach
-void recreverse(Node* &head, Node* curr, Node* prev){
-    if(curr==NULL){
-        head=prev;
-        return;
+
+Node* findmid(Node* head){
+    Node* slow= head;
+    Node* fast= head;
+    while(fast!=NULL && fast->next!=NULL){
+        slow= slow->next;
+        fast= fast->next->next;
     }
-    recreverse(head,curr->next,curr);
-    curr->next= prev;
+    return slow;
 }
 
-// second recursive approach
-Node* reverseagain(Node* head){
-    if(head==NULL || head->next==NULL){
-        return head;
-    }
 
-    Node * smallhead= reverseagain(head->next);
-    head->next->next= head;
-    head->next= NULL;
-    return smallhead;
-}
-
-void reverse(Node* &head){
-    Node* current= head;
-    Node* prev = NULL;
-    Node* forward= NULL;
-    while(current!=NULL){
-        forward= current->next;
-        current->next= prev;
-        prev= current;
-        current= forward;
-    }
-    head = prev;
-}
 
 void print(Node* head){
     Node* temp = head;
@@ -125,18 +103,12 @@ int main()
     // print(head);
 
     insertatposition(head,tail, 5, 78);
+    // print(head);
+    insertatposition(head,tail, 6, 85);
     print(head);
-    
-    //iterative function to reverse linked list
-    // reverse(head);
-    
-    // 1st recursive approach to reverse linked list
-    // Node* curr=head;
-    // Node* prev=NULL;
-    // recreverse(head, curr, prev);
 
-    // second recursive approach to reverse a linked list
-    Node * temp= reverseagain(head);
-    print(temp);
+    Node* mid= findmid(head);
+    cout<<mid->data<<endl;
+
  return 0;
 }
