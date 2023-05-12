@@ -63,6 +63,14 @@ void insertatposition(Node* head,Node* tail, int index,int d){
     
 }
 
+void recreverse(Node* &head, Node* curr, Node* prev){
+    if(curr==NULL){
+        head=prev;
+        return;
+    }
+    recreverse(head,curr->next,curr);
+    curr->next= prev;
+}
 
 void reverse(Node* &head){
     Node* current= head;
@@ -107,7 +115,10 @@ int main()
     insertatposition(head,tail, 5, 78);
     print(head);
 
-    reverse(head);
+    // reverse(head);
+    Node* curr=head;
+    Node* prev=NULL;
+    recreverse(head, curr, prev);
     print(head);
  return 0;
 }
