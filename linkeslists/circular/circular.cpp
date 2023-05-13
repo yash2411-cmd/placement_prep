@@ -79,6 +79,16 @@ void print(Node* tail){
     
 }
 
+bool iscircular(Node* head){
+    // for empty list also we consider it to be a circular one 
+    if(head == NULL)return true;
+    Node* temp = head->next;
+    while(temp!=NULL && temp!=head){
+        temp= temp->next;
+    }
+    if(temp==NULL)return false;
+    else return true;
+}
 
 int main()
 {
@@ -95,5 +105,12 @@ int main()
 
     deletenode(tail, 8);
     print(tail);
+    if(iscircular(tail)){
+        cout<<"list is circular."<<endl;
+    }
+    else{
+        cout<<"list is not circular."<<endl;
+        }
+
  return 0;
 }
