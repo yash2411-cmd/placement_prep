@@ -1,33 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
+    
+// codestudio
+    class Node {
+        public :
 
-class Node{
+        int data;
+        Node *next;
 
-    public:
-    int data;
-    Node* next;
-
-
-    // constructor similar to getnode
-    Node(int data){
-        this->data= data;
-        this->next= NULL;
-    }
-
-    // destructor
-    ~Node(){
-        int value= this->data;
-        if(this->next!= NULL){
-            delete next;
-            this->next= NULL;
+        Node(int data) {
+            this -> data = data;
+            this -> next = NULL;
         }
-    }
-};
+    };
 
-
-bool floydalgo(Node* head){
+Node* floydalgo(Node* head){
     if(head==NULL){
-        return false;
+        return NULL;
     }
     Node* slow= head;
     Node* fast= head;
@@ -39,14 +28,41 @@ bool floydalgo(Node* head){
         slow= slow->next;
 
         if(slow==fast){
-            return true;
+            return slow;
         }
     }
-    return false;
+    return NULL;
 
 }
 
-int main()
+Node* getstartingnode(Node* head){
+    if(head==NULL){
+        return NULL;
+    }
+    Node* intersection= floydalgo(head);
+    if(intersection==NULL)return NULL;
+    Node* slow= head;
+    // slow= head;
+    while(slow!=intersection){
+        slow= slow->next;
+        intersection= intersection->next;
+    }
+    return slow;
+}
+
+
+Node *removeLoop(Node *head)
 {
- return 0;
+    // Write your code here.
+    if(head==NULL){
+        return NULL;
+    }
+    Node* startpoint= getstartingnode(head);
+    if(startpoint==NULL)return head;
+    Node* temp = startpoint;
+    while(temp->next !=startpoint){
+        temp = temp->next;
+    }
+    temp->next= NULL;
+    return head;
 }
