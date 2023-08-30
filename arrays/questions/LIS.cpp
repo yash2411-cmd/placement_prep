@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// used binary search in this program 
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
