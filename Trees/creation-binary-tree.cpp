@@ -132,21 +132,23 @@ int main()
 {
     node* root = NULL;
  
-    // buildfromlevelorder(root);
- 
-    root = buildTree(root);
 
-    // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
-    cout<<"printing level order of binary tree: ";
-    cout<<endl;
+    // 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1
+    buildfromlevelorder(root);
+    
+    // root = buildTree(root);
+
+    // // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+    // cout<<"printing level order of binary tree: ";
+    // cout<<endl;
     levelordertraversal(root);
-       cout<<"inorder traversal"<<endl;
-       inorder(root);
-       cout<<endl;
-       cout<<"preorder traversal"<<endl;
-       preorder(root);
-       cout<<endl;
-       cout<<"postorder traversal"<<endl;
-       postorder(root);
+    //    cout<<"inorder traversal"<<endl;
+    //    inorder(root);
+    //    cout<<endl;
+    //    cout<<"preorder traversal"<<endl;
+    //    preorder(root);
+    //    cout<<endl;
+    //    cout<<"postorder traversal"<<endl;
+    //    postorder(root);
  return 0;
 }
