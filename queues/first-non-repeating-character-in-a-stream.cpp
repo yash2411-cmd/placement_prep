@@ -32,6 +32,62 @@ class Solution {
 };
 
 
+/*
+// second way
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        
+        queue<int>q;
+        int arr[26]={0};
+        for(int i=0;i<s.size();i++){
+            char ch= s[i];
+            q.push(i);
+            arr[ch-'a']++;
+            while(!q.empty()){
+                if(arr[s[q.front()]-'a']>1){
+                    q.pop();
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        if(!q.empty()){
+            return q.front();
+        }
+        else{
+            return -1;
+        }
+        
+    }
+};
+
+// third way
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        
+        unordered_map<char,int>mp;
+        for(int i=0;i<s.size();i++){
+            mp[s[i]]++;
+        }
+        for(int i=0;i<s.size();i++){
+            if(mp[s[i]]==1){
+                return i;
+            }
+        }
+        return -1;
+        
+    }
+};
+
+
+
+
+*/
+
+
 
 int main()
 {
