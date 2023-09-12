@@ -75,6 +75,59 @@ void takeinput(Node* &root){
     
 }
 
+Node * minval(Node* root){
+    Node* temp = root;
+    while(temp->left!=NULL){
+        temp=temp->left;
+        
+    }
+    return temp;
+}
+Node * maxval(Node* root){
+    Node* temp = root;
+    while(temp->right!=NULL){
+        temp=temp->right;
+        
+    }
+    return temp;
+}
+
+
+Node* deletefromBST(Node* root, int val){
+    // bc
+    if(root == NULL){
+        return root;
+    }
+    if(root->data == val){
+        // 0 child case 
+        if(root-left==NULL && root->right==NULL){
+            delete root;
+            return NULL;
+        }
+
+        // 1 child case
+        if(root->left !=NULL && root->right==NULL){
+            Node* temp = root->left;
+            delete root;
+            return temp;
+        }
+        if(root->left ==NULL && root->right!=NULL){
+            Node* temp = root->right;
+            delete root;
+            return temp;
+        }
+
+        // 2 childs case
+        if(root->left!=NULL && root->right!=NULL){
+            int min = minval(root->right)->data;
+            root->data = min;
+            root->right = deletefromBST(root->right, mini);
+            return root;
+        }
+    }
+}
+
+
 void inorder(Node* root){
     //LNR
     if(root==NULL){
@@ -93,8 +146,9 @@ int main()
     takeinput(root);
     // insertinBST(root);
     cout<<"Printing BST: ";
-    levelordertraversal(root);
-    inorder(root);
-
+    // levelordertraversal(root);
+    // inorder(root);
+    cout<<minval(root);
+    cout<<maxval(root);
  return 0;
 }
