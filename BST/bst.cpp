@@ -91,6 +91,7 @@ int main()
     Node* root = NULL;
     cout<<"Enter data to create a BST: "<<endl;
     takeinput(root);
+    // insertinBST(root);
     cout<<"Printing BST: ";
     levelordertraversal(root);
     inorder(root);
