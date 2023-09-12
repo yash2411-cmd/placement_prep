@@ -100,7 +100,7 @@ Node* deletefromBST(Node* root, int val){
     }
     if(root->data == val){
         // 0 child case 
-        if(root-left==NULL && root->right==NULL){
+        if(root->left==NULL && root->right==NULL){
             delete root;
             return NULL;
         }
@@ -125,6 +125,15 @@ Node* deletefromBST(Node* root, int val){
             return root;
         }
     }
+    else if(root->val >val){
+            root->left= deleteNode(root->left,val);
+            return root;
+    }
+    else{
+        root->right = deleteNode(root->right,val);
+        return root;
+    }
+    return root;
 }
 
 
