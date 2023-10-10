@@ -28,7 +28,7 @@ class Solution {
         ListNode* temp = new ListNode(data);
         
         if(head==NULL){
-            head= temp;
+            head= temp;.
             tail = temp;
             return;
         }

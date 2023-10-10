@@ -52,13 +52,13 @@ void insertatposition(Node* head,Node* tail, int index,int d){
         temp= temp->next;
         cnt++;
     }
+    if(temp->next==NULL){
+        insertattail(tail,d);
+    }
     Node* t = new Node(d);
     t->next= temp->next;
     temp->next= t;
 
-    if(temp->next==NULL){
-        insertattail(tail,d);
-    }
 
     
 }

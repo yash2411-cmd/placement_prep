@@ -49,6 +49,7 @@ int main()
     vilian *v2= new vilian; 
     cout<<"size of v2: "<<sizeof(v2)<<endl;
 
+    // derefrencing
     (*v2).set_age(19);
     (*v2).set_Name('S');
 
