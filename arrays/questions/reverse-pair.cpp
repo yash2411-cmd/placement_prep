@@ -9,7 +9,7 @@ public:
         int j = mid + 1;
         int count = 0;
         for (int i = low; i <= mid; i++)
-        {
+        { // checking if the solution exists for each ith element in the left part of array to jth element in the right part of array.
             while (j <= high && arr[i] > 2LL * arr[j])
             {
                 j++;
