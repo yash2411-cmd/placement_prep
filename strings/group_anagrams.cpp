@@ -32,5 +32,20 @@ public:
 
 int main()
 {
+    // sample input: ["eat","nat","bat","ate","tan"]
+    // output: [["eat", "ate"], ["nat", "tan"],["bat"]]
+    Solution s;
+    vector<string> str = {"eat", "nat", "bat", "ate", "tan"};
+    vector<vector<string>> ans = s.groupAnagrams(str);
+    for (auto i : ans)
+    {
+        for (auto j : i)
+        {
+            for (auto k : j)
+                cout << k;
+        }
+        cout << endl;
+    }
+    // cout << endl;
     return 0;
 }
