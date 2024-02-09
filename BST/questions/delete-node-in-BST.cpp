@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 /**
@@ -12,67 +12,76 @@ using namespace std;
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-TreeNode* minval(TreeNode* root){
-    TreeNode* temp = root;
-    while(temp->left!=NULL){
-        temp=temp->left;
-        
+    TreeNode *minval(TreeNode *root)
+    {
+        TreeNode *temp = root;
+        while (temp->left != NULL)
+        {
+            temp = temp->left;
+        }
+        return temp;
     }
-    return temp;
-}
-TreeNode* deletefromBST(TreeNode* root, int val){
-    // bc
-    if(root == NULL){
-        return root;
-    }
-    if(root->val == val){
-        // 0 child case 
-        if(root->left==NULL && root->right==NULL){
-            delete root;
-            return NULL;
-        }
-
-        // 1 child case
-        if(root->left !=NULL && root->right==NULL){
-            TreeNode* temp = root->left;
-            delete root;
-            return temp;
-        }
-        if(root->left ==NULL && root->right!=NULL){
-            TreeNode* temp = root->right;
-            delete root;
-            return temp;
-        }
-
-        // 2 childs case
-        if(root->left!=NULL && root->right!=NULL){
-            int min = minval(root->right)->val;
-            root->val = min;
-            root->right = deletefromBST(root->right, min);
+    TreeNode *deletefromBST(TreeNode *root, int val)
+    {
+        // bc
+        if (root == NULL)
+        {
             return root;
         }
-    }
-    else if(root->val >val){
-            root->left= deleteNode(root->left,val);
+        if (root->val == val)
+        {
+            // 0 child case
+            if (root->left == NULL && root->right == NULL)
+            {
+                delete root;
+                return NULL;
+            }
+
+            // 1 child case
+            if (root->left != NULL && root->right == NULL)
+            {
+                TreeNode *temp = root->left;
+                delete root;
+                return temp;
+            }
+            if (root->left == NULL && root->right != NULL)
+            {
+                TreeNode *temp = root->right;
+                delete root;
+                return temp;
+            }
+
+            // 2 childs case
+            if (root->left != NULL && root->right != NULL)
+            {
+                int min = minval(root->right)->val;
+                root->val = min;
+                root->right = deletefromBST(root->right, min);
+                return root;
+            }
+        }
+        else if (root->val > val)
+        {
+            root->left = deletefromBST(root->left, val);
             return root;
-    }
-    else{
-        root->right = deleteNode(root->right,val);
+        }
+        else
+        {
+            root->right = deletefromBST(root->right, val);
+            return root;
+        }
         return root;
     }
-    return root;
-
-}
-    TreeNode* deleteNode(TreeNode* root, int key) {
+    TreeNode *deleteNode(TreeNode *root, int key)
+    {
         return deletefromBST(root, key);
     }
 };
 
-
-
 int main()
 {
- return 0;
+    return 0;
 }
