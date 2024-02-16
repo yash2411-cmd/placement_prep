@@ -25,7 +25,7 @@ public:
         }
     }
 
-    // topological sort function dfs
+    // topological sort
     void dfs(int node, unordered_map<int, bool> &visited, stack<int> &topo)
     {
         visited[node] = true;
