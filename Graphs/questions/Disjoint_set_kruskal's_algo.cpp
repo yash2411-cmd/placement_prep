@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+// finding weight of minimum spanning tree  using kruskal algorithm
 void makeSet(vector<int> &parent, vector<int> &rank, int n)
 {
     for (int i = 0; i < n; i++)
