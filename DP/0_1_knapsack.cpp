@@ -120,13 +120,48 @@ int optimized(vector<int> &weights, vector<int> &values, int n, int capacity)
     return prev[capacity];
 }
 
+int furtheroptimized(vector<int> &weights, vector<int> &values, int n, int capacity)
+{
+
+    vector<int> curr(capacity + 1, 0);
+
+    for (int w = weights[0]; w <= capacity; w++)
+    {
+        if (weights[0] <= capacity)
+        {
+            curr[w] = values[0];
+        }
+        else
+        {
+            curr[w] = 0;
+        }
+    }
+
+    for (int index = 1; index < n; index++)
+    {
+        for (int j = capacity; j >= 0; j--)
+        {
+            int include = 0;
+            if (weights[index] <= j)
+            {
+                include = values[index] + curr[j - weights[index]];
+            }
+            int exclude = curr[j];
+
+            curr[j] = max(include, exclude);
+        }
+    }
+    return curr[capacity];
+}
+
 int maxProfit(vector<int> &values, vector<int> &weights, int n, int w)
 {
-    // return solve(weights, values, n-1, w);
-    vector<vector<int>> dp(n, vector<int>(w + 1, -1));
-    return mem(weights, values, n - 1, w, dp);
+    // // return solve(weights, values, n-1, w);
+    // vector<vector<int> > dp(n, vector<int>(w+1, -1));
+    // return mem(weights, values, n-1, w, dp);
 
-    return optimized(weights, values, n, w);
+    // return optimized(weights,values,n,w);
+    return furtheroptimized(weights, values, n, w);
 }
 
 int main()
