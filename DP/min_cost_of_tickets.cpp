@@ -76,7 +76,28 @@ public:
         }
         return dp[0];
     }
+    int optimized(vector<int> &days, vector<int> &costs)
+    {
+        int ans = 0;
+        queue<pair<int, int>> monthly;
+        queue<pair<int, int>> weekly;
 
+        for (auto day : days)
+        {
+            while (monthly.size() > 0 && monthly.front().first + 30 <= day)
+            {
+                monthly.pop();
+            }
+            while (weekly.size() > 0 && weekly.front().first + 7 <= day)
+            {
+                weekly.pop();
+            }
+            weekly.push({day, ans + costs[1]});
+            monthly.push({day, ans + costs[2]});
+            ans = min(ans + costs[0], min(monthly.front().second, weekly.front().second));
+        }
+        return ans;
+    }
     int mincostTickets(vector<int> &days, vector<int> &costs)
     {
         int n = days.size();
