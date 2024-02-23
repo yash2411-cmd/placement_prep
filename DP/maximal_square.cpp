@@ -112,7 +112,7 @@ public:
         return next[0];
     }
 
-    // can further optimize it in O(1) : Home work
+    // can further optimize it in O(1)
     int further_optimized(vector<vector<char>> &matrix)
     {
         int maxi = 0;
@@ -135,22 +135,22 @@ public:
         }
 
         return maxi * maxi;
-
-        int maximalSquare(vector<vector<char>> & matrix)
-        {
-            int maxi = 0;
-            // int n = matrix.size();
-            // int m = matrix[0].size();
-
-            // vector<vector<int>> dp(n, vector<int>(m,-1));
-            // mem(matrix, 0, 0, dp, maxi);
-            // return maxi*maxi;
-            opt(matrix, maxi);
-            return maxi * maxi;
-        }
-    };
-
-    int main()
-    {
-        return 0;
     }
+    int maximalSquare(vector<vector<char>> &matrix)
+    {
+        int maxi = 0;
+        // int n = matrix.size();
+        // int m = matrix[0].size();
+
+        // vector<vector<int>> dp(n, vector<int>(m,-1));
+        // mem(matrix, 0, 0, dp, maxi);
+        // return maxi*maxi;
+        opt(matrix, maxi);
+        return maxi * maxi;
+    }
+};
+
+int main()
+{
+    return 0;
+}
