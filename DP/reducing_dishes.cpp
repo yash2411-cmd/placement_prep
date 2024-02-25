@@ -16,6 +16,7 @@ public:
         int exclude = 0 + solve(s, index + 1, time);
         return max(include, exclude);
     }
+    // SC O(n^2) TC O(N^2)
     int mem(vector<int> &s, int index, int time, vector<vector<int>> &dp)
     {
         if (index == s.size())
@@ -32,6 +33,8 @@ public:
         dp[index][time] = max(include, exclude);
         return dp[index][time];
     }
+
+    // SC O(n^2) TC O(N^2)
     int tab(vector<int> &s)
     {
         int n = s.size();
@@ -48,6 +51,7 @@ public:
         }
         return dp[0][0];
     }
+    // SC O(n) TC O(N^2)
     int opt(vector<int> &s)
     {
         int n = s.size();
