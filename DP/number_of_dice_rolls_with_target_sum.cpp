@@ -30,7 +30,7 @@ public:
         }
         return ans;
     }
-
+    //   time complexity is O(n*m*X) and space is O(n*x)
     int mem(int n, int k, int target, vector<vector<int>> &dp)
     {
         if (target < 0)
