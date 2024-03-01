@@ -68,7 +68,7 @@ private:
 
 public:
     int maximalRectangle(vector<vector<char>> &matrix)
-    {
+    { 
         if (matrix.empty())
             return 0;
 
