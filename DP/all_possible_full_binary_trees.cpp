@@ -15,7 +15,7 @@ using namespace std;
 class Solution
 {
 public:
-    // with dp the time complexity is O(n^3) and without dp the time complexity is exponential
+    // with dp the time complexity is O(n^3) and without dp the time complexity is exponential.
     vector<TreeNode *> solve(int n, unordered_map<int, vector<TreeNode *>> &dp)
     {
         vector<TreeNode *> ans;
