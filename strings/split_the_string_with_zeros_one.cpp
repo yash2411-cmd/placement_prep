@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Split the binary string into substrings with equal number of 0s and 1s
+
 class Solution
 {
 public:
