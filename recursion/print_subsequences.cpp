@@ -3,7 +3,7 @@ using namespace std;
 #define ll long long
 // print printSubsequence with sum equal to k
 
-vector<vector<int>> ans;
+// s
 
 bool printSubsequence(vector<int> &sub, int sum, int index, int n, int target, vector<int> &arr)
 {
