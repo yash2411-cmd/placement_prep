@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// time complexity is O(E*4^n) and space complexity is O(E+V+E)
+// time complexity is O(E+4^n) and space complexity is O(E+V+E)
 class Solution
 {
 public:
