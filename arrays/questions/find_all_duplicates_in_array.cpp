@@ -4,6 +4,7 @@ using namespace std;
 class Solution
 {
 public:
+    // here we use switch methods  to solve the problem, as it is a basic
     vector<int> findDuplicates(vector<int> &nums)
     {
         vector<int> ans;
