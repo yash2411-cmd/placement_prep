@@ -1,35 +1,55 @@
 #include <bits/stdc++.h>
 using namespace std;
+// time complexity is O(nlogn) and space is O(n)
+class Solution
+{
+public:
+    int firstMissingPositive(vector<int> &nums)
+    {
+        sort(nums.begin(), nums.end());
+        int ans = 1;
+        set<int> second;
+        for (auto i : nums)
+        {
+            if (i > 0)
+            {
+                second.insert(i);
+            }
+        }
+        for (auto i : second)
+        {
+            if (i > ans)
+            {
+                return ans;
+            }
+            ans++;
+        }
+        return ans;
+    }
+};
 
 class Solution
 {
 public:
-    // Function to find the smallest positive number missing from the array.
-    int missingNumber(int arr[], int n)
+    // uses cyclic sort  algorithm to sort the array in O(n) and auxiliary space of O(1)
+    int firstMissingPositive(vector<int> &nums)
     {
-        int mx = INT_MIN;
-        for (int i = 0; i < n; i++)
+        int n = nums.size();
+        int i = 0;
+        while (i < n)
         {
-            if (arr[i] <= 0)
+            if (nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i] - 1])
             {
-                arr[i] = 0;
+                swap(nums[i], nums[nums[i] - 1]);
             }
-            mx = max(mx, arr[i]);
-        }
-
-        mx = mx + 1;
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i] > 0)
+            else
             {
-                int in = arr[i] % mx - 1;
-                if (in < n && in >= 0)
-                    arr[in] += mx;
+                i++;
             }
         }
         for (int i = 0; i < n; i++)
         {
-            if (arr[i] < mx)
+            if (nums[i] != i + 1)
             {
                 return i + 1;
             }
