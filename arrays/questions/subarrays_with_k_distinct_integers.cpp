@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//  time complexity is O(n) and space is also O(n)
+//  time complexity is O(n) and space is also O(k)
 class Solution
 {
 public:
