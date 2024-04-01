@@ -49,6 +49,30 @@ public:
     }
 };
 
+// iterative approach :
+vector<int> postorder(Node *root)
+{
+    if (root == NULL)
+    {
+        return {};
+    }
+    vector<int> ans;
+    stack<Node *> st;
+    st.push(root);
+    while (!st.empty())
+    {
+        Node *temp = st.top();
+        st.pop();
+        ans.push_back(temp->val);
+        for (auto ch : temp->children)
+        {
+            st.push(ch);
+        }
+    }
+    reverse(ans.begin(), ans.end());
+    return ans;
+}
+
 int main()
 {
     return 0;
