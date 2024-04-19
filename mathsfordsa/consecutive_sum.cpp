@@ -17,6 +17,7 @@ using namespace std;
 class Solution
 {
 public:
+    // time compelexity is O(n) and space is constant
     int consecutiveNumbersSum(int n)
     {
         int ans = 0;
